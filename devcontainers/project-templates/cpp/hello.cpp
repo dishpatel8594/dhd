@@ -1,20 +1,21 @@
 #include <iostream>
-#include <vector>
+ 
+// Function declaration
+void func(void);
+ 
+static int count = 10; /* Global variable */
+int main() {
+   while(count--) {
+      func();
+   }
+   
+   return 0;
+}
 
-int
-main ()
-{
-  std::vector<int> v;
-  for (int i : {5, 4, 3, 2, 1})
-  {
-    v.push_back (i);
-  }
-
-  for (auto val : v)
-  {
-    std::cout << val << ' ';
-  }
-  std::cout << "\nHello, World!" << std::endl;
-
-  return 0;
+// Function definition
+void func( void ) {
+   static int i = 5; // local static variable
+   i++;
+   std::cout << "i is " << i ;
+   std::cout << " and count is " << count << std::endl;
 }
