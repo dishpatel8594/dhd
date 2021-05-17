@@ -42,15 +42,21 @@ int main()
                     <<"Re-enter number:\n ";
         }while(guess <= 0 || guess > 10);
         dice = rand()%10 + 1;
-        if(dice == guess)
+        
+        if (dice > guess)
+        {
+            cout << "Too high! You lost $ "<< bettingAmount <<"\n";
+            balance = balance - bettingAmount;
+        }
+        else if (dice < guess)
+        {
+            cout << "Too low! You lost $ "<< bettingAmount <<"\n";
+            balance = balance - bettingAmount;
+        }
+        else 
         {
             cout << "\n\nYou are in luck!! You have won Rs." << bettingAmount * 10;
             balance = balance + bettingAmount * 10;
-        }
-        else
-        {
-            cout << "Oops, better luck next time !! You lost $ "<< bettingAmount <<"\n";
-            balance = balance - bettingAmount;
         }
         cout << "\nThe winning number was : " << dice <<"\n";
         cout << "\n"<<playerName<<", You have balance of $ " << balance << "\n";
